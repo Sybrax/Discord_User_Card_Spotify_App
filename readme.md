@@ -23,6 +23,8 @@ Discord User Card is a node js application that allows you to display the curren
 7. You have to get your refresh token now. Type `npm run get-refresh-token <code>` in the terminal and copy the refresh token in the `.env` file
 8. That's it, you can now start the application with `npm start` or `npm run dev` if you want to use nodemon.
 
+> NOTE : If when you start the application you have an error like `Error: listen EADDRINUSE: address already in use :::80`, it means that the port 80 is already used by another application. You can change the port in the `.env` file. Morevever if you have an error with the refresh token, you have to get a new code and a new refresh token, this is because you don't start the application for a long time. (this situation never happened to me and normally never will happen if your application is online 24/7).
+
 ## Preview :
 
 <img src="https://i.imgur.com/ojXknMm.png">
