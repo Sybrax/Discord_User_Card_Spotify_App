@@ -1,0 +1,114 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <title>Sybrax Card - Spotify Version</title>
+</head>
+<body>
+  <div class="card">
+    <div class="card-header">
+      <div
+        class="banner-img"
+        style="background: url('./assets/img/banner.gif')"
+      ></div>
+    </div>
+    <div class="card-body">
+      <div class="profile-header">
+        <div class="profil-logo">
+          <img src="./assets/img/logo.jpeg" />
+        </div>
+        <div class="badges-container">
+          <div class="badge-item">
+            <img src="./assets/img/badges/gear.svg" alt="" />
+            <div class="tooltip tooltip-up">Web Developer</div>
+          </div>
+          <div class="badge-item">
+            <img src="./assets/img/badges/ui_uix.svg" alt="" />
+            <div class="tooltip tooltip-up">UI/UX Designer</div>
+          </div>
+          <div class="badge-item">
+            <img src="./assets/img/badges/graph.svg" alt="" />
+            <div class="tooltip tooltip-up">Graphic Designer</div>
+          </div>
+        </div>
+      </div>
+      <div class="profile-body">
+        <div class="username">Lohan ✌️ <span>Alias Sybrax</span></div>
+        <hr />
+        <div class="btn-container">
+          <a href="https://sybraxdesign.fr/" target="_blank" class="btn mr-10"
+            >Sybrax Design</a
+          >
+          <a
+            href="https://sybraxdesign.fr/"
+            target="_blank"
+            class="btn btn-small"
+          >
+            <img src="./assets/img/github.png" alt="" />
+          </a>
+        </div>
+        <div class="basic-infos">
+          <div class="category-title">About me</div>
+          <p>→ Manager of <b>Sybrax Design</b></p>
+        </div>
+        <div class="basic-infos">
+          <div class="category-title">Listen on Spotify</div>
+          <div id="spotify-container">
+            <div class="spotify hidden">
+              <div class="spotify-music-infos">
+                <div class="music-cover">
+                  <img src="./assets/img/logo.jpeg" />
+                </div>
+                <div class="music-text">
+                  <div class="music-title">
+                    <b
+                      ><a href="https://sybraxdesign.fr/" target="_blank">
+                        Title
+                      </a></b
+                    >
+                  </div>
+                  <div class="music-artist">
+                    by
+                    <a href="https://sybraxdesign.fr/" target="_blank">
+                      Artist
+                    </a>
+                  </div>
+                  <div class="music-album">
+                    in
+                    <a href="https://sybraxdesign.fr/" target="_blank">
+                      Album
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="spotify-music-tracker">
+                <div class="music-tracker-container">
+                  <div class="music-tracker"></div>
+                </div>
+                <div class="timer">
+                  <span>0:00</span>
+                  <span style="color: #696969">Playing</span>
+                  <span>0:00</span>
+                </div>
+              </div>
+            </div>
+            <div class="spotify-listen-nothing">
+              <div class="text">Nothing is playing right now</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="copyright">
+    Modified version by
+    <a href="https://sybraxdesign.fr/" target="_blank">Sybrax</a> of the
+    <a href="https://github.com/Sybrax/Discord-User-Card" target="_blank"
+      >Discord-User-Card</a
+    >
+    repository.
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="./assets/js/main.js"></script>
+</body>
