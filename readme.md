@@ -29,7 +29,7 @@ Discord User Card is a node js application that allows you to display the curren
 
 Demo : <a href="https://sybrax.github.io/Discord-User-Card/">here</a> (demo of the style of the card, not the spotify dynamic card)
 
-Download : <a href="#">Not available yet</a>
+Download : <a href="https://github.com/Sybrax/Discord_User_Card_Spotify_App/releases/download/1.0.0/Discord_Spotify_App_1.0.0.rar">here</a>
 
 ## Community :
 
