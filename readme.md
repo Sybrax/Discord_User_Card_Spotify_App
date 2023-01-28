@@ -14,7 +14,7 @@ Discord User Card is a node js application that allows you to display the curren
 
 ## Installation :
 
-1. Clone the repository : `git clone link`
+1. Clone the repository : `git clone https://github.com/Sybrax/Discord_User_Card_Spotify_App`
 2. Install the dependencies : `npm install`
 3. Create spotify application : <a href="https://developer.spotify.com/dashboard/applications">here</a>
 4. In the spotify application, add `http://localhost:80` or your domain in the redirect uri
