@@ -21,10 +21,15 @@ class AuthController {
   }
 
   checkAccessToken(req, res, next) {
+    if (!process.env.SPOTIFY_ACCESS_TOKEN) {
+      console.log("No access token. Refreshing...");
+      this.getAccessToken(req, res, next);
+      return;
+    }
     this.spotifyApi.setAccessToken(process.env.SPOTIFY_ACCESS_TOKEN);
     this.spotifyApi
       .getMyCurrentPlayingTrack()
-      .then((data) => {
+      .then(() => {
         console.log("Access token is valid");
         if (next) next();
       })
@@ -40,10 +45,7 @@ class AuthController {
       .refreshAccessToken()
       .then((data) => {
         const accessToken = data.body["access_token"];
-        const newRefreshToken = data.body["refresh_token"];
         this.spotifyApi.setAccessToken(accessToken);
-        this.spotifyApi.setRefreshToken(newRefreshToken);
-        process.env.SPOTIFY_REFRESH_TOKEN = newRefreshToken;
         process.env.SPOTIFY_ACCESS_TOKEN = accessToken;
         console.log("Access token refreshed");
         if (next) next();

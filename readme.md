@@ -8,16 +8,16 @@
 
 ## Description :
 
-Discord User Card is a node js application that allows you to display the current song you are listening on spotify. It is very easy to use and you can customize it as you wish.
+Discord User Card is a node js application that allows you to display the current song you are listening on spotify in live.
 
-> NOTE : Spotify WebSocket is not free to use, so the request is limited and the song may not be updated in real time. Morevever you need to have a spotify premium account to use this application, spotify free account is not supported... I love you spotify free account users but i can't do anything for you :/
+> NOTE : This application need to have a spotify premium account. Sorry for the users who don't have a premium account, i love you but i can't do anything for you...
 
 ## Installation :
 
 1. Clone the repository : `git clone https://github.com/Sybrax/Discord_User_Card_Spotify_App`
 2. Install the dependencies : `npm install`
 3. Create spotify application : <a href="https://developer.spotify.com/dashboard/applications">here</a>
-4. In the spotify application, add `http://localhost:80` or your domain in the redirect uri
+4. In the spotify application, add `http://localhost:80/callback` or your domain in the redirect uri
 5. Copy the client id and the client secret and paste it in the `.env` file. You have to put the same redirect uri in the `.env` file
 6. You have to get your code, do a request to `https://accounts.spotify.com/authorize?client_id=<client_id>&response_type=code&redirect_uri=<redirect_uri>&scope=user-read-private%20user-read-currently-playing` and copy the code in the url.
 7. You have to get your refresh token now. Type `npm run get-refresh-token <code>` in the terminal and copy the refresh token in the `.env` file
@@ -35,7 +35,7 @@ Download : <a href="https://github.com/Sybrax/Discord_User_Card_Spotify_App/rele
 
 ## Community :
 
-Join creators-area to see more of the community : <a href="https://discord.gg/fHYmhV3r3k">here</a>
+Join creators-area to see more of the community : <a href="https://discord.gg/fHYmhV3r3k" target="_blank">here</a>
 
 ## Author :
 

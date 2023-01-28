@@ -9,35 +9,16 @@ class PlaybackController {
     });
   }
 
-  async getCurrentPlayback(socket = null) {
-    if (!process.env.SPOTIFY_ACCESS_TOKEN) {
-      console.log("No access token, wait for refresh");
-      return;
-    }
+  getCurrentPlayback(io) {
     this.spotifyApi.setAccessToken(process.env.SPOTIFY_ACCESS_TOKEN);
-    const reponse = await this.spotifyApi.getMyCurrentPlaybackState();
-    const data = reponse.body;
-    if (socket) {
-      socket.emit("playback", data);
-    }
-    return data;
-  }
-
-  async getVerificationPlayback(socket, initialPlayback) {
-    let verificationPlayback = await this.getCurrentPlayback();
-    if (
-      initialPlayback &&
-      verificationPlayback &&
-      initialPlayback.item &&
-      verificationPlayback.item
-    ) {
-      if (
-        initialPlayback.item.id !== verificationPlayback.item.id ||
-        initialPlayback.is_playing !== verificationPlayback.is_playing
-      ) {
-        this.getCurrentPlayback(socket);
-      }
-    }
+    this.spotifyApi
+      .getMyCurrentPlayingTrack()
+      .then((data) => {
+        io.emit("playback", data.body);
+      })
+      .catch((err) => {
+        console.log("Error getting current playback: ", err);
+      });
   }
 }
 

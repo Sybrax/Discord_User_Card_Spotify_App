@@ -1,6 +1,3 @@
-let timerInterval;
-let pausedInterval;
-
 const spotifyContainer = document.querySelector(".spotify");
 const spotifyNotPlaying = document.querySelector(".spotify-listen-nothing");
 
@@ -21,25 +18,6 @@ socket.on("playback", (playback) => {
     updateUI(null);
   }
 });
-
-const addSecondToTimer = (playback) => {
-  if (playback.progress_ms >= playback.item.duration_ms) {
-    clearInterval(timerInterval);
-    socket.emit("playbackChange", playback);
-    return;
-  }
-  spotifyProgress.style.width = `${
-    (playback.progress_ms / playback.item.duration_ms) * 100
-  }%`;
-  spotifyProgressTimers[0].innerText = new Date(playback.progress_ms)
-    .toISOString()
-    .substr(14, 5);
-  spotifyProgressTimers[1].innerText = playback.is_playing ? "" : "Paused";
-  spotifyProgressTimers[2].innerText = new Date(playback.item.duration_ms)
-    .toISOString()
-    .substr(14, 5);
-  playback.progress_ms += 1000;
-};
 
 const updateUI = (playback) => {
   if (playback) {
@@ -64,22 +42,6 @@ const updateUI = (playback) => {
     spotifyProgressTimers[2].innerText = new Date(playback.item.duration_ms)
       .toISOString()
       .substr(14, 5);
-
-    if (playback.is_playing) {
-      if (timerInterval) clearInterval(timerInterval);
-      if (pausedInterval) clearInterval(pausedInterval);
-
-      addSecondToTimer(playback);
-      timerInterval = setInterval(() => {
-        addSecondToTimer(playback);
-      }, 1000);
-    } else {
-      if (timerInterval) clearInterval(timerInterval);
-      if (pausedInterval) clearInterval(pausedInterval);
-      pausedInterval = setInterval(() => {
-        socket.emit("playbackChange", playback);
-      }, 20000);
-    }
   } else {
     spotifyContainer.classList.add("hidden");
     spotifyNotPlaying.classList.remove("hidden");
